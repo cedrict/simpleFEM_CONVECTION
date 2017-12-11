@@ -1,0 +1,14 @@
+#! /bin/bash
+
+rm onset_Nu.dat
+rm onset_vrms.dat
+
+for k in {775..785} ; do
+
+   echo $k
+   ./simplefem -Ra $k > opla 
+   grep final opla | grep Nu   >> onset_Nu.dat
+   grep final opla | grep vrms >> onset_vrms.dat
+
+done
+
